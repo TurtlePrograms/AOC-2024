@@ -8,22 +8,18 @@ with open("day 4/full.txt") as f:
 
 
 def testForXmas(data, x, y):
-    patterns = [
-        [("M", -1, -1), ("S", -1, 1), ("M", 1, -1), ("S", 1, 1)],
-        [("S", -1, -1), ("M", -1, 1), ("S", 1, -1), ("M", 1, 1)],
-        [("M", -1, -1), ("M", -1, 1), ("S", 1, -1), ("S", 1, 1)],
-        [("S", -1, -1), ("S", -1, 1), ("M", 1, -1), ("M", 1, 1)],
-    ]
-
+    validPatterns = ["MMASS", "SSAMM", "MSAMS", "SMASM"]
     try:
-        if data[y][x] != "A":
+        string = ""
+        string += data[y - 1][x - 1]
+        string += data[y - 1][x + 1]
+        string += data[y][x]
+        string += data[y + 1][x - 1]
+        string += data[y + 1][x + 1]
+        if string in validPatterns:
+            return True
+        else:
             return False
-
-        for pattern in patterns:
-            if all(data[y + dy][x + dx] == char for char, dy, dx in pattern):
-                return True
-
-        return False
     except IndexError:
         return False
 
@@ -33,6 +29,5 @@ for y in range(len(data)):
     for x in range(len(data[y])):
         if data[y][x] == "A":
             if testForXmas(data, x, y):
-                print(testForXmas(data, x, y), y, x)
                 count += 1
 print(count)
