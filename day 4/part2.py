@@ -8,14 +8,36 @@ with open("day 4/full.txt") as f:
 
 
 def testForXmas(data, x, y):
-    validPatterns = ["MMASS", "SSAMM", "MSAMS", "SMASM"]
+    validPatterns = [
+        [
+            ["S", "X", "S"],
+            ["X", "A", "X"],  # This is the pattern we are looking for
+            ["M", "X", "M"],
+        ],
+        [
+            ["M", "X", "S"],
+            ["X", "A", "X"],  # This is the pattern we are looking for
+            ["M", "X", "S"],
+        ],
+        [
+            ["S", "X", "M"],
+            ["X", "A", "X"],  # This is the pattern we are looking for
+            ["S", "X", "M"],
+        ],
+        [
+            ["S", "X", "M"],
+            ["X", "A", "X"],  # This is the pattern we are looking for
+            ["S", "X", "M"],
+        ],
+    ]
     try:
-        string = ""
-        string += data[y - 1][x - 1]
-        string += data[y - 1][x + 1]
-        string += data[y][x]
-        string += data[y + 1][x - 1]
-        string += data[y + 1][x + 1]
+        string = [["X", "X", "X"], ["X", "X", "X"], ["X", "X", "X"]]
+        string[0][0] = data[y - 1][x - 1]
+        string[0][2] = data[y - 1][x + 1]
+        string[1][1] = data[y][x]
+        string[2][0] = data[y + 1][x - 1]
+        string[2][2] = data[y + 1][x + 1]
+        print(string)
         if string in validPatterns:
             return True
         else:
