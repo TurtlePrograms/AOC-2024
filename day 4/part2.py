@@ -1,3 +1,4 @@
+# failed
 data = []
 with open("day 4/full.txt") as f:
     for line in f:
@@ -11,22 +12,38 @@ def testForXmas(data, x, y):
     validPatterns = [
         [
             ["S", "X", "S"],
-            ["X", "A", "X"],  # This is the pattern we are looking for
+            [
+                "X",
+                "A",
+                "X",
+            ],  # to keep auto format from messing up the pattern we write this comment
             ["M", "X", "M"],
         ],
         [
             ["M", "X", "S"],
-            ["X", "A", "X"],  # This is the pattern we are looking for
+            [
+                "X",
+                "A",
+                "X",
+            ],  # to keep auto format from messing up the pattern we write this comment
             ["M", "X", "S"],
         ],
         [
             ["S", "X", "M"],
-            ["X", "A", "X"],  # This is the pattern we are looking for
+            [
+                "X",
+                "A",
+                "X",
+            ],  # to keep auto format from messing up the pattern we write this comment
             ["S", "X", "M"],
         ],
         [
             ["S", "X", "M"],
-            ["X", "A", "X"],  # This is the pattern we are looking for
+            [
+                "X",
+                "A",
+                "X",
+            ],  # to keep auto format from messing up the pattern we write this comment
             ["S", "X", "M"],
         ],
     ]
